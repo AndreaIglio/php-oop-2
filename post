@@ -43,7 +43,7 @@ $posts = [
 foreach ($users as $user) {
    foreach($posts as $post){
 
-    if($user->userID == $post->postID){?>
+    if($user->userID == $post->userID){?>
 
     <p><?php  echo 'fanculo'; ?></p>
 

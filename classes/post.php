@@ -2,8 +2,6 @@
 
 include __DIR__ .'/classes/user.php';
 
-var_dump($userID);
-
 class Post {
     
     //primary key
@@ -31,12 +29,6 @@ class Post {
 
 }
 
-$posts = [
-
-    $post1 = new Post(1, 1, 'Voliamo su Marte', 'lorem10', 'fantasy'),
-    $post1_2 = new Post(2, 1, 'Giriamo su Marte', 'lorem5', 'action'),
-
-];
 
 
 

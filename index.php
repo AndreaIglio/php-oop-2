@@ -37,23 +37,47 @@ $users = [
 
 array_push($users, $user1);
 
+$posts = [
+
+    $post1 = new Post(1, 1, 'Voliamo', 'post1', 'fantasy'),
+    $post1_2 = new Post(2, 1, 'Giro su Marte', 'post1_2', 'action'),
+    $post2 = new Post(3, 2, 'Luna', 'post2', 'action'),
+
+
+];
+
 
 // var_dump($users);
 
 
 foreach ($users as $user) {
-
+    
     if ($nameUser == $user->name && $user->role == 'admin') { ?>
 
         <h3><?php echo $user->name . ' ' . 'you are the admin';   ?></h3>
+
+
 
     <?php } elseif ($nameUser == $user->name && $user->role == 'user') { ?>
 
         <h3><?php echo $user->name . ' ' . 'you are an user';   ?></h3>
 
-<?php }
-}
+        <?php }
 
+
+
+        foreach($posts as $post){
+            // var_dump($user->name);
+            if($nameUser === $user->name && $post->userID === $user->userID){ ?>
+                <p><?php echo $post->content; ?></p>
+            <?php }
+        }
+
+
+
+
+
+};
 
 
 
