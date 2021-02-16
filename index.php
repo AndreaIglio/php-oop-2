@@ -9,32 +9,53 @@
 // Per darvi un idea, un blog ha degli articoli, categorie, tags etc.
 // Create nel diagramma anche le altre entitá e definite per ciascuna le rispettive classi con proprietá e metodi.
 
-include __DIR__ . '/classes/user.php';
+include_once __DIR__ . '/classes/user.php';
 include __DIR__ . '/classes/role.php';
+include __DIR__ . '/classes/post.php';
 
+
+
+
+?>
+
+<form action="./index.php" method="get">
+    <input type="text" value="" name="name">
+
+</form>
+
+<?php
+
+$nameUser = $_GET['name'];
+
+// var_dump($nameUser);
 
 $users = [
 
-    new Role('Francesco', 'Brazorf', 54, 'francesco.brazorf@gmail.com', 'male', 'user'),
-
+    $user2 = new Role(2, 'Francesco', 'Brazorf', 54, 'francesco.brazorf@gmail.com', 'male', 'user'),
 
 ];
 
-array_push($users, $user1, $admin);
+array_push($users, $user1);
 
 
-var_dump($users);
+// var_dump($users);
 
 
 foreach ($users as $user) {
 
-    if ($user->role === 'admin') { ?>
+    if ($nameUser == $user->name && $user->role == 'admin') { ?>
 
+        <h3><?php echo $user->name . ' ' . 'you are the admin';   ?></h3>
 
-        <h3><?php echo  'Welcome admin' ?> <?php echo $user->name; ?></h3>
-    <?php } else { ?>
-        <h3><?php echo  'Welcome user' ?> <?php echo $user->name; ?></h3>
+    <?php } elseif ($nameUser == $user->name && $user->role == 'user') { ?>
+
+        <h3><?php echo $user->name . ' ' . 'you are an user';   ?></h3>
+
 <?php }
 }
+
+
+
+
 
 ?>

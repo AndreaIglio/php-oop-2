@@ -4,14 +4,16 @@
 
 class User {
 
+    public $userID;
     public $name;
     public $lastName;
     public $age;
     public $email;
     public $gender;
 
-    public function __construct(string $name, string $lastName, int $age, string $email, string $gender){
+    public function __construct(int $userID, string $name, string $lastName, int $age, string $email, string $gender){
 
+        $this->userID = $userID;
         $this->name = $name;
         $this->lastName = $lastName;
         $this->age = $age;
@@ -24,11 +26,8 @@ class User {
 }
 
 
-$user1 = new User('Andrea', "Iglio", 27, 'andrea.iglio@gmail.com', 'Male');
-var_dump($user1);
-var_dump($user1->name);
-$user1->name = 'Gino';
-var_dump($user1);
+$user1 = new User(1, 'Andrea', "Iglio", 27, 'andrea.iglio@gmail.com', 'Male');
+
 
 
 ?>
