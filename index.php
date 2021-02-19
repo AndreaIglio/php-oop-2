@@ -17,11 +17,12 @@ include __DIR__ . '/classes/post.php';
 
 
 ?>
-
+<h3>Insert a name Andrea (admin) or Francesco (user)</h3>
 <form action="./index.php" method="get">
     <input type="text" value="" name="name">
 
 </form>
+
 
 <?php
 
