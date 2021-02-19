@@ -52,7 +52,7 @@ $posts = [
 
 
 foreach ($users as $user) {
-    
+
     if ($nameUser == $user->name && $user->role == 'admin') { ?>
 
         <h3><?php echo $user->name . ' ' . 'you are the admin';   ?></h3>
@@ -67,18 +67,26 @@ foreach ($users as $user) {
 
 
 
-        foreach($posts as $post){
-            // var_dump($user->name);
-            if($nameUser === $user->name && $post->userID === $user->userID){ ?>
-                <p><?php echo $post->content; ?></p>
-            <?php }
-        }
-
-
-
-
-
+    foreach ($posts as $post) {
+        // var_dump($user->name);
+        if ($nameUser === $user->name && $post->userID === $user->userID) { ?>
+            <p><?php echo $post->content; ?></p>
+    <?php }
+    }
 };
+
+
+foreach ($users as $user) { ?>
+
+
+    <p><?php echo  $user->name ?></p>
+    <p><?php echo  $user->lastName ?></p>
+    <p><?php echo $user->role  ?></p>
+
+
+<?php }
+
+
 
 
 
