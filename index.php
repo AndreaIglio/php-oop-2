@@ -20,7 +20,6 @@ include __DIR__ . '/classes/post.php';
 <h3>Insert a name Andrea (admin) or Francesco (user)</h3>
 <form action="./index.php" method="get">
     <input type="text" value="" name="name">
-
 </form>
 
 
@@ -50,45 +49,71 @@ $posts = [
 
 // var_dump($users);
 
-
-foreach ($users as $user) {
-
-    if ($nameUser == $user->name && $user->role == 'admin') { ?>
-
-        <h3><?php echo $user->name . ' ' . 'you are the admin';   ?></h3>
+?>
 
 
+<!DOCTYPE html>
+<html lang="en">
 
-    <?php } elseif ($nameUser == $user->name && $user->role == 'user') { ?>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-        <h3><?php echo $user->name . ' ' . 'you are an user';   ?></h3>
+<body>
+    <?php
+
+    foreach ($users as $user) {
+
+        if ($nameUser == $user->name && $user->role == 'admin') { ?>
+
+            <h3><?php echo $user->name . ' ' . 'you are the admin';   ?></h3>
+
+
+
+        <?php } elseif ($nameUser == $user->name && $user->role == 'user') { ?>
+
+            <h3><?php echo $user->name . ' ' . 'you are an user';   ?></h3>
+
+            <?php }
+
+
+
+        foreach ($posts as $key => $post) {
+            // var_dump($user->name);
+            if ($nameUser === $user->name && $post->userID === $user->userID) { ?>
+                <h3>Post: <?php echo $key ?></h3>
+                <p>Title: <?php echo $post->title; ?></p>
+                <p>Content: <?php echo $post->content; ?></p>
+                <p>Category: <?php echo $post->category; ?></p>
+
 
         <?php }
+        }
+    };
 
 
+    foreach ($users as $key=>$user) { ?>
 
-    foreach ($posts as $post) {
-        // var_dump($user->name);
-        if ($nameUser === $user->name && $post->userID === $user->userID) { ?>
-            <p><?php echo $post->content; ?></p>
+        <h3>User <?php echo $key ?></h3>
+        <p>Name: <?php echo  $user->name ?></p>
+        <p>LastName: <?php echo  $user->lastName ?></p>
+        <p>Role: <?php echo $user->role  ?></p>
+
+
     <?php }
-    }
-};
-
-
-foreach ($users as $user) { ?>
-
-
-    <p><?php echo  $user->name ?></p>
-    <p><?php echo  $user->lastName ?></p>
-    <p><?php echo $user->role  ?></p>
-
-
-<?php }
 
 
 
 
 
 
-?>
+    ?>
+
+
+
+</body>
+
+</html>
